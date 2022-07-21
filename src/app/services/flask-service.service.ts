@@ -11,7 +11,7 @@ import { Vehiculo } from '../models/vehiculo.interface';
 export class FlaskServiceService {
 
   constructor(private http:HttpClient) { }
-
+  //Funcion post que manda los datos de registro al servidor 
   fnSendDataServer(vehicle: Vehiculo): Observable<any> {
     const httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -23,12 +23,12 @@ export class FlaskServiceService {
       headers: httpHeaders,
     });
   }
-
+  //Funcion que recibe una placa y manda un peticion GET
   fnSerchVehicleServer(IDvehicle: string): Observable<any> {
     console.log(IDvehicle); 
     return this.http.get(_URL_GET+IDvehicle);
   }
-
+  //Funcion put que recibe los datos de tipo veihiculo y manda un peticion put
   fnUpdateDataServer(vehicle: Vehiculo): Observable<any> {
     const httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -40,6 +40,7 @@ export class FlaskServiceService {
       headers: httpHeaders,
     });
   }
+  //Funcion que recibe los datos de la entrada y manda una peticion post
   fnSendEntryServer(entry:Entrada,IDvehicle:string): Observable<any>{
     const httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
