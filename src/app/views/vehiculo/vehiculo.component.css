@@ -1,0 +1,36 @@
+
+
+mat-form-field{
+    /* background-color: aqua; */
+    border: 1px solid black;
+    /* border-radius: 10px; */
+
+ 
+}
+.success{
+    width: 200px;
+    height: 80px;
+    background-color: rgb(68, 255, 47);
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.error{
+    width: 200px;
+    height: 80px;
+    background-color: rgb(255, 47, 47);
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btns{
+    margin-top: 20px;
+}
+
+#buscar{
+    margin: 30px 30px;
+    width: 150px;
+}

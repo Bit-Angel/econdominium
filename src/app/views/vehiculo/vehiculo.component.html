@@ -1,0 +1,157 @@
+<div>
+    <app-menu-bar></app-menu-bar>
+</div>
+<div class="container">
+    <form [formGroup]="vehiculoForm">
+        <div class="row">
+            <div class="col-4">
+              <mat-label class="FontMontserrat">Placas:</mat-label>
+              <mat-form-field class="form-control" appearance="standard">
+                <input matInput  formControlName="ctrPlacas" type="text" id="placas" class="" name="placas"/>
+              </mat-form-field>
+            </div>
+            <div class="col-4 ">
+                <mat-label class="FontMontserrat">Gafete:</mat-label>
+                <mat-form-field class="form-control" appearance="standard">
+                  <input matInput  formControlName="ctrGafete" type="text" id="gafete" class="" name="gafete"/>
+                </mat-form-field>
+              </div>
+            <div class="col-4">
+                <mat-label class="FontMontserrat">Telefono:</mat-label>
+                <mat-form-field class="form-control" appearance="standard">
+                  <input matInput  formControlName="ctrTelefono" type="text" id="telefono" class="" name="telefono"/>
+                </mat-form-field>
+              </div>
+        </div>
+        <div class="row">
+                <div class="col-8">
+                  <mat-label class="FontMontserrat ">Nombre del conductor:</mat-label>
+                  <mat-form-field class="form-control" appearance="standard">
+                    <input matInput formControlName="ctrNombre" type="text" id="nombre" class="" name="nombre"/>
+                  </mat-form-field>
+                </div>
+                <div class="col-4">
+                    <mat-label class="FontMontserrat">Celular:</mat-label>
+                    <mat-form-field class="form-control" appearance="standard">
+                      <input matInput  formControlName="ctrCelular" type="text" id="celular" class="" name="celular"/>
+                    </mat-form-field>
+                </div>
+        </div>
+        <div class="row">
+            <div class="col-8">
+              <mat-label class="FontMontserrat ">Direccion:</mat-label>
+              <mat-form-field class="form-control" appearance="standard">
+                <input matInput  formControlName="ctrDireccion" type="text" id="direccion" class="" name="direccion"/>
+              </mat-form-field>
+            </div>
+            <div class="col-4">
+                <button class="btn btn-primary" id="buscar" (click)="fnSerchVehicle()">Buscar</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+              <mat-label class="FontMontserrat ">Color del vehiculo:</mat-label>
+              <mat-form-field class="form-control" appearance="standard">
+                <input matInput  formControlName="ctrColor" type="text" id="color" class="" name="color"/>
+              </mat-form-field>
+            </div>
+            <div class="col-4">
+                <mat-label class="FontMontserrat">Marca:</mat-label>
+                <mat-form-field class="form-control" appearance="standard">
+                  <input matInput  formControlName="ctrMarca" type="text" id="marca" class="" name="marca"/>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8">
+              <mat-label class="FontMontserrat ">Descripcion del vehiculo:</mat-label>
+              <mat-form-field class="form-control" appearance="standard">
+                <input matInput  formControlName="ctrDescripcion" type="text" id="descripcion" class="" name="descripcion"/>
+              </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+              <mat-label class="FontMontserrat ">Tipo de Vehiculo:</mat-label>
+              <select class="form-select" aria-label="Default select example" formControlName="ctrTipo">
+                <option value="Automovil">Automovil</option>
+                <option value="Motocicleta">Motocicleta</option>
+                <option value="Uber">Uber</option>
+                <option value="Taxi">Taxi</option>
+                <option value="Camioneta">Camioneta</option>
+                <option value="Camion">Camion</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-4">
+                <mat-label class="FontMontserrat ">Foto de identificacion frente:</mat-label>
+                <br>
+                <img [src]="imgFrente" width="100" alt="">
+                <input *ngIf="showInput" type="file" accept=".jpg,.png" class="btn" (change)="uploadFrontImage($event)" />
+            </div>
+            <div class="col-4">
+                <mat-label class="FontMontserrat ">Foto de identificacion atras:</mat-label>
+                <br>
+                <img [src]="imgAtras" width="100" alt="">
+                <input *ngIf="showInput" type="file" accept=".jpg,.png" class="btn" (change)="uploadBackImage($event)" />
+            </div>
+        </div>
+        <hr>
+    </form>
+    <h2>Registro del vehiculo</h2>
+    <form [formGroup]="registroForm">
+        <div class="row">
+            <div class="col-4">
+            <mat-label class="FontMontserrat ">Fecha:</mat-label>
+            <mat-form-field class="form-control" appearance="standard">
+                <input matInput  formControlName="ctrFecha" type="date" id="fecha" class="" name="fecha"/>
+            </mat-form-field>
+            </div>
+            <div class="col-4">
+                <mat-label class="FontMontserrat">Hora:</mat-label>
+                <mat-form-field class="form-control" appearance="standard">
+                <input matInput  formControlName="ctrHora" type="time" id="hora" class="" name="hora"/>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+              <mat-label class="FontMontserrat ">Tipo de Ingreso:</mat-label>
+              <select class="form-select" aria-label="Default select example" formControlName="ctrTipoIngreso">
+                <option value="Residente">Residente</option>
+                <option value="Visita">Visita</option>
+                <option value="Trabajo">Trabajo</option>
+                <option value="Entrega_paquete">Entrega paquete</option>
+                <option value="Entrega_Residente">Entrega Residente</option>
+                <option value="Servicio">Servicio</option>
+                <option value="Obra">Obra</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8">
+              <mat-label class="FontMontserrat ">Notas:</mat-label>
+              <mat-form-field class="form-control" appearance="standard">
+                <input matInput  formControlName="ctrNotas" type="text" id="notas" class="" name="notas"/>
+              </mat-form-field>
+            </div>
+        </div>
+        <div class="row btns">
+            <div class="col-4">
+                <button class="btn btn-primary " (click)="fnSendData()">Guardar Informacion</button>
+            </div>
+            <div class="col-4" *ngIf="bandera">
+                <button class="btn btn-primary" (click)="fnSendDataEntry('Accepted')">Aprobar Entrada</button>
+            </div>
+            <div class="col-4" *ngIf="bandera">
+                <button class="btn btn-primary" (click)="fnSendDataEntry('Denied')">Rechazar Entrada</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+
